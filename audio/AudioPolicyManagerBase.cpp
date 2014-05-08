@@ -2860,6 +2860,11 @@ audio_devices_t AudioPolicyManagerBase::getDeviceForInputSource(int inputSource)
             device = AUDIO_DEVICE_IN_REMOTE_SUBMIX;
         }
         break;
+ifdef DQCOM_FM_ENABLED
+case AUDIO_SOURCE_FM_RADIO_RX:
+device = AudioSystem::DEVICE_IN_FM_RADIO_RX;
+break;
+#endif
     default:
         ALOGW("getDeviceForInputSource() invalid input source %d", inputSource);
         break;
@@ -3821,6 +3826,9 @@ const struct StringToEnum sDeviceNameToEnumTable[] = {
 #ifdef QCOM_HARDWARE
     STRING_TO_ENUM(AUDIO_DEVICE_IN_PROXY),
     STRING_TO_ENUM(AUDIO_DEVICE_IN_COMMUNICATION),
+#endif
+#ifdef DQCOM_FM_ENABLED
+STRING_TO_ENUM(AUDIO_DEVICE_IN_FM_RADIO_RX),
 #endif
 };
 
