@@ -147,6 +147,15 @@ public:
         virtual bool isSourceActive(audio_source_t source) const;
 
         virtual status_t dump(int fd);
+#ifdef DQCOM_FM_ENABLED
+/* get Fm input source */
+audio_io_handle_t getFMInput(int inputSource,
+uint32_t samplingRate,
+uint32_t format,
+uint32_t channels,
+AudioSystem::audio_in_acoustics acoustics);
+audio_io_handle_t mfmInput; // FM input handler
+#endif
 
         virtual bool isOffloadSupported(const audio_offload_info_t& offloadInfo);
 
