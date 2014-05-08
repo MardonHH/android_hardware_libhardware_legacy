@@ -92,7 +92,7 @@ status_t AudioPolicyCompatClient::setStreamOutput(AudioSystem::stream_type strea
                                           output);
 }
 
-#ifdef OMAP_ENHANCEMENT
+#ifdef DQCOM_FM_ENABLED
  	status_t AudioPolicyCompatClient::setFMRxActive(bool state)
  	{
  	return mServiceOps->set_FMRxActive(mService,state);
