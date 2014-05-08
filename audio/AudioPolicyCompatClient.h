@@ -57,6 +57,9 @@ public:
                                         audio_channel_mask_t *pChannelMask);
     virtual status_t closeInput(audio_io_handle_t input);
     virtual status_t setStreamOutput(AudioSystem::stream_type stream, audio_io_handle_t output);
+#ifdef DQCOM_FM_ENABLED
+virtual status_t setFMRxActive(bool state);
+#endif
     virtual status_t moveEffects(int session,
                                  audio_io_handle_t srcOutput,
                                  audio_io_handle_t dstOutput);
